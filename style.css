@@ -1,0 +1,16 @@
+h1,
+h2 {
+  font-family: Lato;
+}
+#ddd {
+  width: 25em;
+  height: 25em;
+  background-color: aqua;
+}
+.swal2-timer-progress-bar {
+  margin-top: 10px;
+  width: 1%;
+  height: 0.25em;
+  background: rgba(0, 0, 0, 0.2);
+  display: inline-block;
+}
