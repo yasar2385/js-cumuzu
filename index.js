@@ -21,4 +21,25 @@ var TIMER = setInterval(function () {
   //if (CLOSETIMER < 0 || CLOSETIMER > 100) clearInterval(TIMER);
   if (percen > 100) clearInterval(TIMER);
   if (percen < 100) BAR.style.width = percen + '%';
-}, 100);
+}, 1000000);
+
+function getSearchTerm(currentCard) {
+  let currentSearchBar = currentCard.querySelector('.searchInput');
+  let currentSearchButton = currentCard.querySelector('.searchButton');
+
+  return new Promise(function (resolve, reject) {
+    currentSearchButton.onclick = function () {
+      var currentSearchInput = currentSearchBar.value;
+      if (currentSearchInput !== null) {
+        resolve(currentSearchInput);
+        console.log('here');
+      } else {
+        reject('Please input search term');
+      }
+    };
+  });
+}
+var Confirm = getSearchTerm(document.querySelector('.currentCard'));
+Confirm.then((handleFulfilled1, handleRejected1) => {
+  console.log(handleFulfilled1, handleRejected1);
+});
