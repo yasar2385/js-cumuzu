@@ -43,3 +43,43 @@ var Confirm = getSearchTerm(document.querySelector('.currentCard'));
 Confirm.then((handleFulfilled1, handleRejected1) => {
   console.log(handleFulfilled1, handleRejected1);
 });
+let myFirstPromise = new Promise((resolve, reject) => {
+  // We call resolve(...) when what we were doing asynchronously was successful, and reject(...) when it failed.
+  // In this example, we use setTimeout(...) to simulate async code.
+  // In reality, you will probably be using something like XHR or an HTML5 API.
+  setTimeout(function () {
+    reject('Success!'); // Yay! Everything went well!
+  }, 250);
+});
+
+myFirstPromise.then((successMessage, reject) => {
+  // successMessage is whatever we passed in the resolve(...) function above.
+  // It doesn't have to be a string, but if it is only a succeed message, it probably will be.
+  console.log('Yay! ' + successMessage);
+  console.log('Yay! ' + reject);
+});
+
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('foo');
+  }, 300);
+});
+
+promise1
+  .then((value) => {
+    console.log(value);
+    // expected output: "foo"
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+var temp = ['yasar, afroze'];
+
+
+
+
+const list = ['first', 'second', 'third'];
+BAR.classList.add(...list);
+console.log(BAR.classList);
+BAR.classList.remove(...list);
+console.log(BAR.classList);
